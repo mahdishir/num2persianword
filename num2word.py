@@ -1,6 +1,9 @@
 import arabic_reshaper
 from bidi.algorithm import get_display
-
+def convert(result):
+        reshaped_text = arabic_reshaper.reshape(result)
+        converted = get_display(reshaped_text)
+        return converted
 
 
 def english_to_farsi_numbers(input_str):
@@ -93,11 +96,7 @@ def english_to_farsi_numbers(input_str):
         return "ورودی نامعتبر است."
 
 if __name__ == "__main__":
-    input_str = input("عدد انگلیسی را وارد کنید: ")
+    input_str = input(convert( ":عدد را وارد کنید:"))
     result = english_to_farsi_numbers(input_str)
-    def convert(result):
-        reshaped_text = arabic_reshaper.reshape(result)
-        converted = get_display(reshaped_text)
-        return converted
-    print("نتیجه:", convert(result))
+    print(convert(":نتیجه:"), convert(result))
 
